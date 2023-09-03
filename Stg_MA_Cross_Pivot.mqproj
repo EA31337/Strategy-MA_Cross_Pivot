@@ -15,7 +15,7 @@
   "files":
   [
     {
-      "path":"Stg_MA_Cross_Shift.mq5",
+      "path":"Stg_MA_Cross_Pivot.mq5",
       "compile":true,
       "relative_to_project":true
     },
@@ -215,7 +215,7 @@
       "relative_to_project":false
     },
     {
-      "path":"Stg_MA_Cross_Shift.mqh",
+      "path":"Stg_MA_Cross_Pivot.mqh",
       "compile":false,
       "relative_to_project":true
     },
