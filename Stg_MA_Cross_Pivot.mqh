@@ -18,7 +18,7 @@ enum ENUM_STG_MA_CROSS_PIVOT_TYPE {
 
 // User params.
 INPUT_GROUP("MA Cross Pivot strategy: main strategy params");
-INPUT ENUM_STG_MA_CROSS_PIVOT_TYPE MA_Cross_Pivot_Type = STG_MA_CROSS_PIVOT_TYPE_FRAMA;  // Indicator MA type
+INPUT ENUM_STG_MA_CROSS_PIVOT_TYPE MA_Cross_Pivot_Type = STG_MA_CROSS_PIVOT_TYPE_DEMA;  // Indicator MA type
 INPUT_GROUP("MA Cross Pivot strategy: strategy params");
 INPUT float MA_Cross_Pivot_LotSize = 0;                // Lot size
 INPUT int MA_Cross_Pivot_SignalOpenMethod = 1;         // Signal open method (-3-3)
