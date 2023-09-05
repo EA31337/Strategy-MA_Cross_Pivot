@@ -243,7 +243,7 @@ class Stg_MA_Cross_Pivot : public Strategy {
     }
     // float _level_pips = (float)(_level * _chart.GetPipSize());
     double _value1 = _indi[_ishift][0];
-    ChartEntry _ohlc_d1 = _chart.GetEntry(PERIOD_D1, _shift, _chart.GetSymbol());
+    ChartEntry _ohlc_d1 = _chart.GetEntry(PERIOD_D1, _shift + 1, _chart.GetSymbol());
     double _d1_pivot = _ohlc_d1.bar.ohlc.GetPivot();
     switch (_cmd) {
       case ORDER_TYPE_BUY:
