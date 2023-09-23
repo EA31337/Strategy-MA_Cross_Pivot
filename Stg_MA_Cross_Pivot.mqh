@@ -1,6 +1,6 @@
 /**
  * @file
- * Strategy based on the moving average price indicators implementing shifted cross signal.
+ * Strategy based on the moving average price indicators implementing daily pivot cross signal.
  */
 
 enum ENUM_STG_MA_CROSS_PIVOT_TYPE {
@@ -103,11 +103,11 @@ struct Stg_MA_Cross_Pivot_Params_Defaults : StgParams {
                   ::MA_Cross_Pivot_SignalCloseMethod, ::MA_Cross_Pivot_SignalCloseFilter,
                   ::MA_Cross_Pivot_SignalCloseLevel, ::MA_Cross_Pivot_PriceStopMethod, ::MA_Cross_Pivot_PriceStopLevel,
                   ::MA_Cross_Pivot_TickFilterMethod, ::MA_Cross_Pivot_MaxSpread, ::MA_Cross_Pivot_Shift) {
-    Set(STRAT_PARAM_LS, MA_Cross_Pivot_LotSize);
-    Set(STRAT_PARAM_OCL, MA_Cross_Pivot_OrderCloseLoss);
-    Set(STRAT_PARAM_OCP, MA_Cross_Pivot_OrderCloseProfit);
-    Set(STRAT_PARAM_OCT, MA_Cross_Pivot_OrderCloseTime);
-    Set(STRAT_PARAM_SOFT, MA_Cross_Pivot_SignalOpenFilterTime);
+    Set(STRAT_PARAM_LS, ::MA_Cross_Pivot_LotSize);
+    Set(STRAT_PARAM_OCL, ::MA_Cross_Pivot_OrderCloseLoss);
+    Set(STRAT_PARAM_OCP, ::MA_Cross_Pivot_OrderCloseProfit);
+    Set(STRAT_PARAM_OCT, ::MA_Cross_Pivot_OrderCloseTime);
+    Set(STRAT_PARAM_SOFT, ::MA_Cross_Pivot_SignalOpenFilterTime);
   }
 };
 
@@ -126,7 +126,7 @@ class Stg_MA_Cross_Pivot : public Strategy {
     // Initialize Strategy instance.
     ChartParams _cparams(_tf, _Symbol);
     TradeParams _tparams;
-    Strategy *_strat = new Stg_MA_Cross_Pivot(_stg_params, _tparams, _cparams, "MA");
+    Strategy *_strat = new Stg_MA_Cross_Pivot(_stg_params, _tparams, _cparams, "MA Pivot");
     return _strat;
   }
 
@@ -135,7 +135,7 @@ class Stg_MA_Cross_Pivot : public Strategy {
    */
   void OnInit() {
     // Initialize indicators.
-    switch (MA_Cross_Pivot_Type) {
+    switch (::MA_Cross_Pivot_Type) {
       case STG_MA_CROSS_PIVOT_TYPE_AMA:  // AMA
       {
         IndiAMAParams _indi_params(::MA_Cross_Pivot_Indi_AMA_InpPeriodAMA, ::MA_Cross_Pivot_Indi_AMA_InpFastPeriodEMA,
