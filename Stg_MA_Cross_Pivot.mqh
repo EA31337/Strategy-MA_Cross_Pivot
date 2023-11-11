@@ -126,7 +126,7 @@ class Stg_MA_Cross_Pivot : public Strategy {
     // Initialize Strategy instance.
     ChartParams _cparams(_tf, _Symbol);
     TradeParams _tparams;
-    Strategy *_strat = new Stg_MA_Cross_Pivot(_stg_params, _tparams, _cparams, "MA Pivot");
+    Strategy *_strat = new Stg_MA_Cross_Pivot(_stg_params, _tparams, _cparams, "MA Cross Pivot");
     return _strat;
   }
 

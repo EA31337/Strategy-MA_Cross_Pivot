@@ -2,7 +2,7 @@
   "platform"    :"mt5",
   "program_type":"expert",
   "copyright"   :"Copyright 2016-2023, EA31337 Ltd",
-  "link"        :"https:\/\/github.com\/EA31337\/Strategy-MA",
+  "link"        :"https:\/\/github.com\/EA31337\/Strategy-MA_Cross_Pivot",
   "version"     :"2.000",
   "description" :"Strategy based on the moving average price indicators implementing daily pivot cross signal.",
   "cpu_architecture" :"0",
