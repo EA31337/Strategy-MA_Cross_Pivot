@@ -141,27 +141,24 @@ class Stg_MA_Cross_Pivot : public Strategy {
         IndiAMAParams _indi_params(::MA_Cross_Pivot_Indi_AMA_InpPeriodAMA, ::MA_Cross_Pivot_Indi_AMA_InpFastPeriodEMA,
                                    ::MA_Cross_Pivot_Indi_AMA_InpSlowPeriodEMA, ::MA_Cross_Pivot_Indi_AMA_InpShiftAMA,
                                    PRICE_TYPICAL, ::MA_Cross_Pivot_Indi_AMA_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_AMA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_AMA(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_AMA(_indi_params, ::MA_Cross_Pivot_Indi_AMA_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_DEMA:  // DEMA
       {
         IndiDEIndiMAParams _indi_params(::MA_Cross_Pivot_Indi_DEMA_Period, ::MA_Cross_Pivot_Indi_DEMA_MA_Shift,
                                         ::MA_Cross_Pivot_Indi_DEMA_Applied_Price, ::MA_Cross_Pivot_Indi_DEMA_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_DEMA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_DEMA(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_DEMA(_indi_params, ::MA_Cross_Pivot_Indi_DEMA_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_FRAMA:  // FrAMA
       {
         IndiFrAIndiMAParams _indi_params(::MA_Cross_Pivot_Indi_FrAMA_Period, ::MA_Cross_Pivot_Indi_FrAMA_MA_Shift,
                                          ::MA_Cross_Pivot_Indi_FrAMA_Applied_Price, ::MA_Cross_Pivot_Indi_FrAMA_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_FrAMA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_FrAMA(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_FrAMA(_indi_params, ::MA_Cross_Pivot_Indi_FrAMA_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_ICHIMOKU:  // Ichimoku
@@ -169,9 +166,8 @@ class Stg_MA_Cross_Pivot : public Strategy {
         IndiIchimokuParams _indi_params(
             ::MA_Cross_Pivot_Indi_Ichimoku_Period_Tenkan_Sen, ::MA_Cross_Pivot_Indi_Ichimoku_Period_Kijun_Sen,
             ::MA_Cross_Pivot_Indi_Ichimoku_Period_Senkou_Span_B, ::MA_Cross_Pivot_Indi_Ichimoku_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_Ichimoku_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_Ichimoku(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_Ichimoku(_indi_params, ::MA_Cross_Pivot_Indi_Ichimoku_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_MA:  // MA
@@ -179,36 +175,32 @@ class Stg_MA_Cross_Pivot : public Strategy {
         IndiMAParams _indi_params(::MA_Cross_Pivot_Indi_MA_Period, ::MA_Cross_Pivot_Indi_MA_MA_Shift,
                                   ::MA_Cross_Pivot_Indi_MA_Method, ::MA_Cross_Pivot_Indi_MA_Applied_Price,
                                   ::MA_Cross_Pivot_Indi_MA_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_MA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_MA(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_MA(_indi_params, ::MA_Cross_Pivot_Indi_MA_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_PRICE_CHANNEL:  // Price Channel
       {
         IndiPriceChannelParams _indi_params(::MA_Cross_Pivot_Indi_PriceChannel_Period,
                                             ::MA_Cross_Pivot_Indi_PriceChannel_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_PriceChannel_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_PriceChannel(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_PriceChannel(_indi_params, ::MA_Cross_Pivot_Indi_PriceChannel_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_SAR:  // SAR
       {
         IndiSARParams _indi_params(::MA_Cross_Pivot_Indi_SAR_Step, ::MA_Cross_Pivot_Indi_SAR_Maximum_Stop,
                                    ::MA_Cross_Pivot_Indi_SAR_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_SAR_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_SAR(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_SAR(_indi_params, ::MA_Cross_Pivot_Indi_SAR_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_TEMA:  // TEMA
       {
         IndiTEMAParams _indi_params(::MA_Cross_Pivot_Indi_TEMA_Period, ::MA_Cross_Pivot_Indi_TEMA_MA_Shift,
                                     ::MA_Cross_Pivot_Indi_TEMA_Applied_Price, ::MA_Cross_Pivot_Indi_TEMA_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_TEMA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_TEMA(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_TEMA(_indi_params, ::MA_Cross_Pivot_Indi_TEMA_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_VIDYA:  // VIDYA
@@ -216,9 +208,8 @@ class Stg_MA_Cross_Pivot : public Strategy {
         IndiVIDYAParams _indi_params(::MA_Cross_Pivot_Indi_VIDYA_Period, ::MA_Cross_Pivot_Indi_VIDYA_MA_Period,
                                      ::MA_Cross_Pivot_Indi_VIDYA_MA_Shift, ::MA_Cross_Pivot_Indi_VIDYA_Applied_Price,
                                      ::MA_Cross_Pivot_Indi_VIDYA_Shift);
-        _indi_params.SetDataSourceType(::MA_Cross_Pivot_Indi_VIDYA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_VIDYA(_indi_params), ::MA_Cross_Pivot_Type);
+        SetIndicator(new Indi_VIDYA(_indi_params, ::MA_Cross_Pivot_Indi_VIDYA_SourceType), ::MA_Cross_Pivot_Type);
         break;
       }
       case STG_MA_CROSS_PIVOT_TYPE_0_NONE:  // (None)
@@ -232,7 +223,7 @@ class Stg_MA_Cross_Pivot : public Strategy {
    */
   bool SignalOpen(ENUM_ORDER_TYPE _cmd, int _method = 0, float _level = 0.0f, int _shift = 0) {
     Chart *_chart = trade.GetChart();
-    IndicatorBase *_indi = GetIndicator(::MA_Cross_Pivot_Type);
+    IndicatorData *_indi = GetIndicator(::MA_Cross_Pivot_Type);
     // uint _ishift = _indi.GetParams().GetShift(); // @todo: Convert into Get().
     // bool _result = _indi.GetFlag(INDI_ENTRY_FLAG_IS_VALID, _shift); // @fixme
     uint _ishift = _shift;
